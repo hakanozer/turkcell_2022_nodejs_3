@@ -100,3 +100,38 @@ Object.keys(objy).forEach(key => {
     console.log(key, objy[key]);
 })
 
+// 1. Function
+function fncSum(numa, numb) {
+    const sm = numa + numb
+    console.log(sm);
+}
+fncSum(20,30)
+
+
+function pullFnc(fncParams) {
+    fncParams(70,66)
+}
+pullFnc(fncSum)
+
+
+// 2.Function - arrow function
+/**
+ * 
+ * @param {number} numa 
+ * @param {number} numb 
+ * @returns {number} return
+ */
+const fncMinus = (numa, numb) => {
+    const min = numa - numb
+    console.log(min);
+}
+fncMinus( 99, 87 )
+
+// import module
+const util = require('./util')
+console.log(util.appTitle);
+util.fncProfileName("Title App")
+
+// ts module import
+const action = require('./action')
+console.log(action.age);
