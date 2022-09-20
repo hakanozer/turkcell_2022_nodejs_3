@@ -25,9 +25,8 @@ const fnc3 = () => {
     })
 }
 
-export const allCall = async () => {
+export const allCall = /*async*/ () => {
 
-    /*
     fnc1().then(r1 => {
         console.log(r1);
         fnc2().then(r2 => {
@@ -38,8 +37,8 @@ export const allCall = async () => {
             })
         })
     })
-    */
-
-
-
+    
+    //const obj1 = await fnc1()
+    //const obj2 = await fnc2()
+    //const obj3 = await fnc3()
 }
