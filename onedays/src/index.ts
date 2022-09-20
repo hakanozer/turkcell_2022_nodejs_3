@@ -1,5 +1,8 @@
 import { age, userName } from './action'
-import { allCall } from './asyncAction';
+import { allCallAwait } from './asyncActionAwait';
+import { allCallPromise } from './asyncActionPromise';
+import { callBackFnc, actionFnc } from './callBack';
+import { addDataFile, readDataFile } from './fileControl';
 import { IUser, User } from './models/IUser';
 const util = require('./util')
 console.log(age);
@@ -43,7 +46,20 @@ arr.map( item => {
     item.name
 } )
 
-allCall()
+// promise - await Call
+allCallPromise()
+allCallAwait()
+
+// callBack Call
+callBackFnc(actionFnc())
+
+// file methods call
+addDataFile("New Data Line-5").then(res => {
+    const lines = readDataFile();
+    console.log(lines);
+})
+
+
 
 
 
