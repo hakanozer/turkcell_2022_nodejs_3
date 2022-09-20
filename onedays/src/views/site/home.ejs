@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <%- include('../inc/header')  %> 
+    <title>Site Title</title>
 </head>
 <body>
-    <h1> <%=data.title %> </h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur illo obcaecati, qui doloribus odit, sint quia beatae corrupti exercitationem a et similique tempora eum eligendi voluptatum dolores enim ab.</p>
+    <div class="container">
+        <h1> <%=data.title %> </h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur illo obcaecati, qui doloribus odit, sint quia beatae corrupti exercitationem a et similique tempora eum eligendi voluptatum dolores enim ab.</p>
+        <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <% if (data.cities) { %>
+                    <% data.cities.forEach( item => { %>
+                        <li class="list-group-item"> <%= item %>  </li>
+                    <% }) %>
+                <% } %>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
