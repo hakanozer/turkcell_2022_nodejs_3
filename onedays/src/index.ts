@@ -1,4 +1,5 @@
 import { age, userName } from './action'
+import { allCall } from './asyncAction';
 import { IUser, User } from './models/IUser';
 const util = require('./util')
 console.log(age);
@@ -41,6 +42,10 @@ const arr:IUser[] = []
 arr.map( item => {
     item.name
 } )
+
+allCall()
+
+
 
 
 
