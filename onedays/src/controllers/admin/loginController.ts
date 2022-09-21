@@ -1,4 +1,5 @@
 import express from 'express'
+import { IAdmin } from '../../models/IAdmin'
 import { adminLogin, newAdmin } from '../../services/admin/loginService'
 export const loginController = express.Router()
 
@@ -16,8 +17,18 @@ loginController.post('/login', (req, res) => {
     const remember:string = req.body.remember // on - undefined
     adminLogin(email, password).then( data => {
         if ( data ) {
+            const admin = data as IAdmin
+            req.session.admin = admin
+            req.session.save((err) => {
+                if ( err ) {
+
+                }else {
+                    console.log(req.session);
+                }
+            })
             // login success
             res.redirect('/admin/dashboard')
+            
         }else {
             // login fail
             loginStatusMessage = 'E-Mail or Password Fail'
