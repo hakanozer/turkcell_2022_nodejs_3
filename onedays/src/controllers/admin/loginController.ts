@@ -37,3 +37,10 @@ loginController.post('/login', (req, res) => {
     })
     
 })
+
+
+loginController.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        res.redirect('/admin')
+    })
+})

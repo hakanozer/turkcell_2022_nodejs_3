@@ -7,8 +7,49 @@
 <body>
     <div class="container">
         <%- include('../inc/navBar')  %> 
-       <h2>Welcome Dashboard</h2>
-        
+       <div class="row">
+            <div class="col-sm-6">
+                <h2>Note Add</h2>
+                <form method="post" action="/admin/noteAdd">
+                    <div class="mb-3">
+                        <input name="title" required class="form-control" type="text" placeholder="Title" />
+                    </div>
+                    <div class="mb-3">
+                        <input name="detail" required class="form-control" type="text" placeholder="Detail" />
+                    </div>
+                    <div class="mb-3">
+                        <input name="date" required class="form-control" type="date" placeholder="Title" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Send</button>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <h2>Note List</h2>
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Detail</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <th scope="row">Note Title</th>
+                        <td>Note Detail</td>
+                        <td>21.09.2022</td>
+                        <td>
+                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                      </tr>
+                      
+                      
+                    </tbody>
+                  </table>
+            </div>
+       </div>
     </div>
 </body>
 </html>
