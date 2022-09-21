@@ -20,3 +20,9 @@ export const newAdmin = ( name: string, email: string, password: string ) => {
     })
 }
 
+export const adminLogin = async ( email: string, password: string ) => {
+    db
+    const superAdmin = await superAdminModel.findOne({email: email, password: password})
+    return superAdmin
+}
+

@@ -20,9 +20,11 @@ app.use('/',homeController)
 
 // admin component
 import { loginController } from "./controllers/admin/loginController";
+import { dashboardController } from "./controllers/admin/dashboardController";
 
 // admin Routes
 app.use('/admin', loginController)
+app.use('/admin', dashboardController)
 
 app.listen(port, () => {
     console.log("Listen Port:", 'http://localhost:'+ port);
