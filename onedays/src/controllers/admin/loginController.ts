@@ -1,7 +1,9 @@
 import express from 'express'
+import { newAdmin } from '../../services/admin/loginService'
 export const loginController = express.Router()
 
 loginController.get('/', (req, res) => {
+    //newAdmin("Erkan Bilsin", "erkan@mail.com", "12345")
     res.render('admin/login')
 })
 
