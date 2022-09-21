@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from 'body-parser';
 import path from "path";
 const app = express()
 const port = 4000
@@ -7,12 +8,21 @@ const port = 4000
 app.set( "views", path.join( __dirname, "views" ) );
 app.set('view engine', 'ejs');
 
-// import site component
+// Body Parser - config
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// site component
 import { homeController } from "./controllers/site/homeController";
 
-
-// Routes
+// Site Routes
 app.use('/',homeController)
+
+
+// admin component
+import { loginController } from "./controllers/admin/loginController";
+
+// admin Routes
+app.use('/admin', loginController)
 
 app.listen(port, () => {
     console.log("Listen Port:", 'http://localhost:'+ port);
