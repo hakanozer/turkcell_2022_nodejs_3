@@ -11,7 +11,7 @@ const noteSchema = new Schema({
     date: String
 })
 
-const noteModel = mongoose.model('note', noteSchema)
+export const noteModel = mongoose.model('note', noteSchema)
 
 // Note Add
 export const noteAdd = async ( adminID: string, title: string, detail: string, date: string ) => {

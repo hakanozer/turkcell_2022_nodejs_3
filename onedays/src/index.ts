@@ -59,12 +59,16 @@ app.use('/',homeController)
 import { loginController } from "./controllers/admin/loginController";
 import { dashboardController } from "./controllers/admin/dashboardController";
 import { settingsController } from "./controllers/admin/settingsController";
-
+import { noteRestController } from "./controllers/api/noteRestController";
 
 // admin Routes
 app.use('/admin', loginController)
 app.use('/admin', dashboardController)
 app.use('/admin', settingsController)
+
+// api Routes
+app.use('/api/v1', noteRestController)
+
 
 // 404 Not Found Page - Config
 app.use('*', (req, res, next) => {
