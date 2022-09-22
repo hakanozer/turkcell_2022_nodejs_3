@@ -23,7 +23,7 @@ loginController.post('/login', (req, res) => {
                 if ( err ) {
 
                 }else {
-                    console.log(req.session);
+                    //console.log(req.session);
                 }
             })
             // login success

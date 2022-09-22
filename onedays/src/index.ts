@@ -33,6 +33,22 @@ app.set('view engine', 'ejs');
 // Body Parser - config
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+// Global Filter
+app.use((req, res, next) => {
+    const url = req.url
+    console.log("filter Call", url);
+    if ( url.includes('/admin/') ) {
+        // session control
+        if ( !req.session.admin ) {
+            res.redirect('/admin')
+        }else {
+            res.set('name', req.session.admin.name)
+        }
+    }
+    next()
+})
+
 // site component
 import { homeController } from "./controllers/site/homeController";
 
@@ -52,10 +68,6 @@ app.use('/admin', dashboardController)
 app.use('/admin', settingsController)
 
 
-// 404 config
-app.use("*",(req, res) => {
-    console.log("filter Call");
-})
 
 app.listen(port, () => {
     console.log("Listen Port:", 'http://localhost:'+ port);
