@@ -1,6 +1,10 @@
 import express from 'express'
+import { allUser } from '../../services/admin/settingsService'
 export const settingsController = express.Router()
 
 settingsController.get('/settings', (req,res) => {
-    res.render('admin/settings')
+    allUser().then( resData => {
+        res.render('admin/settings', { users: resData.data } )
+    })
+    
 })

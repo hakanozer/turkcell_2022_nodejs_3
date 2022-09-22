@@ -1,5 +1,5 @@
 import express from 'express'
-import { noteAdd, noteList } from '../../services/admin/dashboardService'
+import { noteAdd, noteDelete, noteList } from '../../services/admin/dashboardService'
 export const dashboardController = express.Router()
 
 dashboardController.get('/dashboard', (req,res) => {
@@ -25,8 +25,11 @@ dashboardController.post('/noteAdd', (req, res) => {
 })
 
 dashboardController.get('/noteDelete', (req, res) => {
-    const id = req.body.id
-    console.log("id", id);    
-    res.redirect('/admin/dashboard')
+    const id = req.query.id as string
+    const itm = req.session.admin as any
+    const adminID = itm._id 
+    noteDelete(id, adminID).then(resData => {
+        res.redirect('/admin/dashboard')
+    })
 })
 

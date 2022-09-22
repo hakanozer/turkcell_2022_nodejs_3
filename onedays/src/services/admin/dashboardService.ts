@@ -28,8 +28,12 @@ export const noteList = async ( adminID: string ) => {
 }
 
 // Note Delete
-export const noteDelete = async ( id: string ) => {
+export const noteDelete = async ( id: string, adminID: string ) => {
     db
-    const res = await noteModel.findByIdAndDelete(id)
-    return res
+    const item = await noteModel.findById(id)
+    if ( item && item.adminID == adminID ) {
+        const res = await noteModel.findByIdAndDelete( id )
+        return res
+    }
+    return null
 }

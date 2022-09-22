@@ -37,7 +37,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Global Filter
 app.use((req, res, next) => {
     const url = req.url
-    console.log("filter Call", url);
     if ( url.includes('/admin/') && url !== '/admin/login') {
         // session control
         if ( !req.session.admin ) {
@@ -67,7 +66,10 @@ app.use('/admin', loginController)
 app.use('/admin', dashboardController)
 app.use('/admin', settingsController)
 
-
+// 404 Not Found Page - Config
+app.use('*', (req, res, next) => {
+    res.render('admin/notfound')
+})
 
 app.listen(port, () => {
     console.log("Listen Port:", 'http://localhost:'+ port);
