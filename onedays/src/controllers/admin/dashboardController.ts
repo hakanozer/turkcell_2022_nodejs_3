@@ -2,12 +2,16 @@ import express from 'express'
 import { noteAdd, noteDelete, noteList } from '../../services/admin/dashboardService'
 export const dashboardController = express.Router()
 
-dashboardController.get('/dashboard', (req,res) => {
+dashboardController.get('/dashboard', (req,res, next) => {
     const itm = req.session.admin as any
-    const adminID = itm._id
-    noteList(adminID).then( resData => {
-        res.render('admin/dashboard', { notes: resData })
-    })
+    if (itm._id !== undefined) {
+        const adminID = itm._id
+        noteList(adminID).then( resData => {
+            res.render('admin/dashboard', { notes: resData })
+        })
+    }else {
+        next()
+    }
 })
 
 dashboardController.post('/noteAdd', (req, res) => {

@@ -42,7 +42,7 @@ app.use((req, res, next) => {
         if ( !req.session.admin ) {
             res.redirect('/admin')
         }else {
-            res.set('name', req.session.admin.name)
+            res.locals.admin = req.session.admin
         }
     }
     next()
