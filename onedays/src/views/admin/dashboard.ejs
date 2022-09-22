@@ -35,15 +35,20 @@
                       </tr>
                     </thead>
                     <tbody>
+                    
+                    <% if (notes) { %>
+                     <% notes.forEach(item => { %>
+                        <tr>
+                            <th scope="row"><%= item.title %> </th>
+                            <td><%= item.detail %></td>
+                            <td><%= item.date %></td>
+                            <td>
+                                <a href="/admin/noteDelete?id=<%= item._id %>" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                          </tr>
+                     <% }) %>
+                    <% } %>    
 
-                      <tr>
-                        <th scope="row">Note Title</th>
-                        <td>Note Detail</td>
-                        <td>21.09.2022</td>
-                        <td>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                      </tr>
                       
                       
                     </tbody>

@@ -19,3 +19,17 @@ export const noteAdd = async ( adminID: string, title: string, detail: string, d
     const res = await noteModel.create({ adminID, title, detail, date })
     return res
 }
+
+// Note List
+export const noteList = async ( adminID: string ) => {
+    db
+    const res = await noteModel.find({ adminID: adminID })
+    return res
+}
+
+// Note Delete
+export const noteDelete = async ( id: string ) => {
+    db
+    const res = await noteModel.findByIdAndDelete(id)
+    return res
+}

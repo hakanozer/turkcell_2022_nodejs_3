@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req, res, next) => {
     const url = req.url
     console.log("filter Call", url);
-    if ( url.includes('/admin/') ) {
+    if ( url.includes('/admin/') && url !== '/admin/login') {
         // session control
         if ( !req.session.admin ) {
             res.redirect('/admin')
