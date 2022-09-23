@@ -4,7 +4,7 @@ export const dashboardController = express.Router()
 
 dashboardController.get('/dashboard', (req,res, next) => {
     const itm = req.session.admin as any
-    if (itm._id !== undefined) {
+    if ( itm && itm._id ) {
         const adminID = itm._id
         noteList(adminID).then( resData => {
             res.render('admin/dashboard', { notes: resData })

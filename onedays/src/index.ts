@@ -60,6 +60,7 @@ import { loginController } from "./controllers/admin/loginController";
 import { dashboardController } from "./controllers/admin/dashboardController";
 import { settingsController } from "./controllers/admin/settingsController";
 import { noteRestController } from "./controllers/api/noteRestController";
+import { userRestController } from "./controllers/api/userRestController";
 
 // admin Routes
 app.use('/admin', loginController)
@@ -68,6 +69,7 @@ app.use('/admin', settingsController)
 
 // api Routes
 app.use('/api/v1', noteRestController)
+app.use('/api/v1', userRestController)
 
 
 // 404 Not Found Page - Config
