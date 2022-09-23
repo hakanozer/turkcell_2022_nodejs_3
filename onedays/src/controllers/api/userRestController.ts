@@ -2,6 +2,7 @@ import express from 'express'
 import { IAdmin } from '../../models/IAdmin'
 import { adminLogin } from '../../services/admin/loginService'
 import { IRest } from '../../utils/IRest'
+import { decrypt } from '../../utils/utilCrypto'
 export const userRestController = express.Router()
 
 
@@ -13,15 +14,16 @@ userRestController.post('/user/login', (req, res, next) => {
         status: false,
         result: "E-Mail or Password Fail"
     }
-    adminLogin(email, password).then( resData => {
+    adminLogin(email).then( resData => {
         if ( resData ) {
-            // login success
-            sendData.status = true
-            sendData.result = resData
             const admin = resData as IAdmin
-            req.session.admin = admin
-        }else {
-            // login fail
+            const plainDbPass = decrypt(admin.password)
+            if ( password === plainDbPass ) {
+                // login success
+                sendData.status = true
+                sendData.result = resData
+                req.session.admin = admin
+            }
         }
         res.json(sendData)
     })
