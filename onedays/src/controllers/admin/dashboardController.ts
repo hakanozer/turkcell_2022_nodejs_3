@@ -1,5 +1,6 @@
 import express from 'express'
 import { noteAdd, noteDelete, noteList } from '../../services/admin/dashboardService'
+import { eventEmitter, EventEnum } from '../../utils/appEvent'
 export const dashboardController = express.Router()
 
 dashboardController.get('/dashboard', (req,res, next) => {
@@ -33,6 +34,7 @@ dashboardController.get('/noteDelete', (req, res) => {
     const itm = req.session.admin as any
     const adminID = itm._id 
     noteDelete(id, adminID).then(resData => {
+        eventEmitter.emit(EventEnum.fncEventOne, id)
         res.redirect('/admin/dashboard')
     })
 })
