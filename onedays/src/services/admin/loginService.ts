@@ -26,3 +26,11 @@ export const adminLogin = async ( email: string ) => {
     return superAdmin
 }
 
+
+export const adminFindID = async ( adminID: string ) => {
+    db
+    const superAdmin = await superAdminModel.findById(adminID)
+    return superAdmin
+}
+
+

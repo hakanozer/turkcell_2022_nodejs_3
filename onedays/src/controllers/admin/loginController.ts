@@ -22,11 +22,11 @@ loginController.post('/login', (req, res) => {
             const plainDbPass = decrypt(admin.password)
             if ( password === plainDbPass ) {
                 req.session.admin = admin
+                if ( remember === 'on' ) {
+                    res.cookie('admin', encrypt(admin.id), { maxAge: 360000 } )
+                }
                 req.session.save((err) => {
-                    if ( err ) {
-    
-                    }else {
-                        //console.log(req.session);
+                    if ( err ) {}else {//console.log(req.session);
                     }
                 })
                 // login success
