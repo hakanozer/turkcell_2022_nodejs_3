@@ -1,0 +1,2 @@
+Mongo DB Yedek Alma:
+mongodump --out=/Users/hakan/Documents/turkcell_2022_nodejs_3/db
