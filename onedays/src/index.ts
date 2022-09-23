@@ -40,7 +40,7 @@ app.use((req, res, next) => {
     if ( url.includes('/admin/') && url !== '/admin/login') {
         // session control
         if ( !req.session.admin ) {
-            res.redirect('/admin')
+            return res.redirect('/admin')
         }else {
             res.locals.admin = req.session.admin
         }
