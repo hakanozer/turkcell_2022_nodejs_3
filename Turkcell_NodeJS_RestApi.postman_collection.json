@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "82a234f4-aad0-482e-8d59-18e576084688",
+		"name": "Turkcell_NodeJS_RestApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1939021"
+	},
+	"item": [
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "erkan@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:4000/api/v1/user/login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "erkan@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "133"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"85-2WML5IB7PTw1PBGaEoJdLb1dWO4\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3AYMi2_8jAA1FX4qpVdFIV5HtvmgWW1aIB.iHpR7UCdRGyaAmi1%2BAOxCQKBxdC%2FX%2F1E6LnrMHy45jQ; Path=/; HttpOnly"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 23 Sep 2022 07:47:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": {\n        \"_id\": \"632ac6c3ff9f054d5d5a7c6e\",\n        \"name\": \"Erkan Bilsin\",\n        \"email\": \"erkan@mail.com\",\n        \"password\": \"12345\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Note List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/v1/note/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"note",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:4000/api/v1/note/list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/note/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"note",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "612"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"264-6/bDg7BFXuuEWxRluxuvZNlf0yU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 23 Sep 2022 07:48:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": [\n        {\n            \"_id\": \"632c38a47dd28fc316564238\",\n            \"adminID\": \"632ac6c3ff9f054d5d5a7c6e\",\n            \"title\": \"Sinema\",\n            \"detail\": \"Hafta sonu sinema\",\n            \"date\": \"2022-09-24\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"632c57d370799caf62d344f9\",\n            \"adminID\": \"632ac6c3ff9f054d5d5a7c6e\",\n            \"title\": \"Toplantı\",\n            \"detail\": \"Cuma sunum yapılacak\",\n            \"date\": \"2022-09-23\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"632c592f8ec26a8714c1091e\",\n            \"adminID\": \"632ac6c3ff9f054d5d5a7c6e\",\n            \"title\": \"Okul Gezisi\",\n            \"detail\": \"Detay Okul\",\n            \"date\": \"2022-09-30\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"632d6281960b2f8232622bf0\",\n            \"adminID\": \"632ac6c3ff9f054d5d5a7c6e\",\n            \"title\": \"Rest Note\",\n            \"detail\": \"Rest Detail\",\n            \"date\": \"2022-09-24\",\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Note Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Erkan Halı Saha",
+							"type": "text"
+						},
+						{
+							"key": "detail",
+							"value": "Halı Saha Detail",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "2022-09-25",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/note/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"note",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:4000/api/v1/note/add",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Erkan Halı Saha",
+									"type": "text"
+								},
+								{
+									"key": "detail",
+									"value": "Halı Saha Detail",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2022-09-25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/note/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"note",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "180"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b4-eQQAwuVK7IIFp/iWZ5hmiQhHMII\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 23 Sep 2022 07:48:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": {\n        \"adminID\": \"632ac6c3ff9f054d5d5a7c6e\",\n        \"title\": \"Erkan Halı Saha\",\n        \"detail\": \"Halı Saha Detail\",\n        \"date\": \"2022-09-25\",\n        \"_id\": \"632d64d24701a60e32c56cc9\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Note Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "632d64d24701a60e32c56cc9",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/note/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"note",
+						"delete"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Note Delete",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "632d64d24701a60e32c56cc9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/note/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"note",
+								"delete"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29-avNVj8ZEoxgSPCEl1iU+M6CFXRY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 23 Sep 2022 08:05:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": \"Delete Success\"\n}"
+				}
+			]
+		}
+	]
+}
